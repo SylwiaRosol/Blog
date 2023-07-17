@@ -20,6 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = 'Content is required';
     }
 
+    if ($published_at != '') {
+        $date_time = date_create_from_format('Y-m-d H:i:s', $published_at);
+
+        if ($date_time === false) {
+
+            $errors[] = 'Invalid date and time';
+
+        } else {
+
+            $date_errors = date_get_last_errors();
+
+            if ($date_errors['warning_count'] > 0) {
+                $errors[] = 'Invalid date and time';
+            }
+        }
+    }
+
     if (empty($errors)) {
 
         $conn = getDB();
@@ -34,12 +51,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else {
 
+            if ($published_at == '') {
+                $published_at = null;
+            }
+
             mysqli_stmt_bind_param($stmt, "sss", $title, $content, $published_at);
 
             if (mysqli_stmt_execute($stmt)) {
 
                 $id = mysqli_insert_id($conn);
-                echo "Inserted record with ID: $id";
+
+                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+                    $protocol = 'https';
+                } else {
+                    $protocol = 'http';
+                }
+
+                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/article.php?id=$id");
+                exit;
 
             } else {
 
@@ -72,14 +101,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div>
         <label for="content">Content</label>
-        <textarea name="content" rows="4" cols="40" id="content"
-                  placeholder="Article content"><?= htmlspecialchars($content); ?></textarea>
+        <textarea name="content" rows="4" cols="40" id="content" placeholder="Article content"><?= htmlspecialchars($content); ?></textarea>
     </div>
 
     <div>
         <label for="published_at">Publication date and time</label>
-        <input type="datetime-local" name="published_at" id="published_at"
-               value="<?= htmlspecialchars($published_at); ?>">
+        <input type="datetime-local" name="published_at" id="published_at" value="<?= htmlspecialchars($published_at); ?>">
     </div>
 
     <button>Add</button>
