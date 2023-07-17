@@ -2,6 +2,8 @@
 
 require 'includes/database.php';
 
+$conn = getDB();
+
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     $sql = "SELECT *
@@ -27,15 +29,15 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 ?>
 <?php require 'includes/header.php'; ?>
 
-    <?php if ($article === null): ?>
-        <p>Article not found.</p>
-    <?php else: ?>
+<?php if ($article === null): ?>
+    <p>Article not found.</p>
+<?php else: ?>
 
-        <article>
-            <h2><?= $article['title']; ?></h2>
-            <p><?= $article['content']; ?></p>
-        </article>
+    <article>
+        <h2><?= htmlspecialchars($article['title']); ?></h2>
+        <p><?= htmlspecialchars($article['content']); ?></p>
+    </article>
 
-    <?php endif; ?>
+<?php endif; ?>
 
 <?php require 'includes/footer.php'; ?>
