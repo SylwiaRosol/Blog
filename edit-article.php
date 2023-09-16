@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validateArticle($title, $content, $published_at);
 
     if (empty($errors)) {
-
+        
         $sql = "UPDATE article
                 SET title = ?,
                     content = ?,
