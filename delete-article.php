@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     if ($article) {
 
         $id = $article['id'];
-        
+
     } else {
         die("article not found");
     }
@@ -54,13 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Delete article</h2>
 
-<form method="post">
+    <form method="post">
 
-    <p>Are you sure?</p>
+        <p>Are you sure?</p>
 
-    <button>Delete</button>
-    <a href="article.php?id=<?= $article['id']; ?>">Cancel</a>
+        <button>Delete</button>
+        <a href="article.php?id=<?= $article['id']; ?>">Cancel</a>
 
-</form>
+    </form>
 
 <?php require 'includes/footer.php'; ?>
