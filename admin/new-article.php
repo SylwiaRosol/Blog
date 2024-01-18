@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($article->create($conn)) {
 
-        Url::redirect("/Blog/admin/article.php?id={$article->id}");
+        Url::redirect("/admin/article.php?id={$article->id}");
 
     }
 }

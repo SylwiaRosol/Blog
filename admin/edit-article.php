@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($article->update($conn)) {
 
-        Url::redirect("/Blog/admin/article.php?id={$article->id}");
+        Url::redirect("/admin/article.php?id={$article->id}");
 
     }
 }
@@ -36,6 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Edit article</h2>
 
-<?php require 'includes/article-form.php'; ?>
+<?php require 'includes/article-form.php'; ?> 
 
 <?php require '../includes/footer.php'; ?>

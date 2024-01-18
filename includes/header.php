@@ -12,11 +12,11 @@
 
     <nav>
         <ul>
-            <li><a href="/Blog/">Home</a></li>
+            <li><a href="/">Home</a></li>
 
             <?php if (Auth::isLoggedIn()) : ?>
                 
-                <li><a href="/Blog/admin/">Admin</a></li>
+                <li><a href="/admin/">Admin</a></li>
                 <li><a href="/logout.php">Log out</a></li>
 
             <?php else : ?>

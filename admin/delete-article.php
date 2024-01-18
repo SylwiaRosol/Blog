@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($article->delete($conn)) {
 
-        Url::redirect("/Blog/admin/index.php");
+        Url::redirect("/admin/index.php");
 
     }
 }
