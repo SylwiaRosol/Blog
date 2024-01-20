@@ -26,7 +26,7 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
         <?php endforeach; ?>
     </ul>
 
-<?php require 'includes/pagination.php'; ?>
+    <?php require 'includes/pagination.php'; ?>
 
 <?php endif; ?>
 
