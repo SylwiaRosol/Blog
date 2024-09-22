@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         Url::redirect("/admin/edit-article-image.php?id={$article->id}");
+
     }
 }
 
@@ -36,10 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require '../includes/header.php'; ?>
 
 <h2>Delete article image</h2>
-
-<?php if ($article->image_file) : ?>
-    <img src="/uploads/<?= $article->image_file; ?>">
-<?php endif; ?>
 
 <form method="post">
 

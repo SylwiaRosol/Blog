@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Restrict the file type
         $mime_types = ['image/gif', 'image/png', 'image/jpeg'];
-
+        
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime_type = finfo_file($finfo, $_FILES['file']['tmp_name']);
 
@@ -118,7 +118,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php if ($article->image_file) : ?>
     <img src="/uploads/<?= $article->image_file; ?>">
+
     <a href="delete-article-image.php?id=<?= $article->id; ?>">Delete</a>
+
 <?php endif; ?>
 
 <?php if (isset($error)) : ?>
