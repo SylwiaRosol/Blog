@@ -1,18 +1,16 @@
 <?php
 
-require 'includes/url.php';
-
-session_start();
+require 'includes/init.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if ($_POST['username'] == 'dave' && $_POST['password'] == 'secret') {
+    $conn = require 'includes/db.php';
+
+    if (User::authenticate($conn, $_POST['username'], $_POST['password'])) {
         
-        session_regenerate_id(true);
+        Auth::login();
 
-        $_SESSION['is_logged_in'] = true;
-
-        redirect('/');
+        Url::redirect('/');
 
     } else {
         

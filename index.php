@@ -1,52 +1,41 @@
 <?php
 
-require 'includes/database.php';
-require 'includes/auth.php';
+require 'includes/init.php';
 
-session_start();
+$conn = require 'includes/db.php';
 
-$conn = getDB();
+$paginator = new Paginator($_GET['page'] ?? 1, 4, Article::getTotal($conn));
 
-$sql = "SELECT *
-        FROM article
-        ORDER BY published_at;";
-
-$results = mysqli_query($conn, $sql);
-
-if ($results === false) {
-    echo mysqli_error($conn);
-} else {
-    $articles = mysqli_fetch_all($results, MYSQLI_ASSOC);
-}
+$articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
 
 ?>
 <?php require 'includes/header.php'; ?>
 
-<?php if (isLoggedIn()): ?>
-
-    <p>You are logged in. <a href="logout.php">Log out</a></p>
-    <p><a href="new-article.php">New article</a></p>
-
-<?php else: ?>
-
-    <p>You are not logged in. <a href="login.php">Log in</a></p>
-
-<?php endif; ?>
-
-<?php if (empty($articles)): ?>
+<?php if (empty($articles)) : ?>
     <p>No articles found.</p>
-<?php else: ?>
+<?php else : ?>
 
     <ul>
-        <?php foreach ($articles as $article): ?>
+        <?php foreach ($articles as $article) : ?>
             <li>
                 <article>
                     <h2><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
+
+                    <?php if ($article['category_names']) : ?>
+                        <p>Categories:
+                            <?php foreach ($article['category_names'] as $name) : ?>
+                                <?= htmlspecialchars($name); ?>
+                            <?php endforeach; ?>
+                        </p>
+                    <?php endif; ?>
+
                     <p><?= htmlspecialchars($article['content']); ?></p>
                 </article>
             </li>
         <?php endforeach; ?>
     </ul>
+
+    <?php require 'includes/pagination.php'; ?>
 
 <?php endif; ?>
 
