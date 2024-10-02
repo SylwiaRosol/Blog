@@ -41,6 +41,9 @@ $("#formArticle").validate({
 	}
 });
 
+/**
+ * Handle the publish button for publishing articles
+ */
 $("button.publish").on("click", function(e) {
 
     var id = $(this).data('id');
@@ -52,6 +55,12 @@ $("button.publish").on("click", function(e) {
         data: {id: id}
     })
     .done(function(data) {
+
         button.parent().html(data);
+
     });
+});
+
+$('#published_at').datetimepicker({
+    format:'Y-m-d H:i:s'
 });
