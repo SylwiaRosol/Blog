@@ -41,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
 
             $mail->isSMTP();
-            $mail->Host = 'your mail server';
+            $mail->Host = SMTP_HOST;
             $mail->SMTPAuth = true;
-            $mail->Username = 'username';
-            $mail->Password = 'password';
+            $mail->Username = SMTP_USER;
+            $mail->Password = SMTP_PASS;
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (! empty($errors)) : ?>
         <ul>
             <?php foreach ($errors as $error) : ?>
-                <li><?= $error ?></li>
+                <li><?= $error ?></li>    
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>

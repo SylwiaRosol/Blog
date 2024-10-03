@@ -19,7 +19,7 @@ $("a.delete").on("click", function(e) {
  * Add a method to validate a date time string
  */
 $.validator.addMethod("dateTime", function(value, element) {
-        
+
     return (value == "") || ! isNaN(Date.parse(value));
 
 }, "Must be a valid date and time");
@@ -57,6 +57,11 @@ $("button.publish").on("click", function(e) {
     .done(function(data) {
 
         button.parent().html(data);
+
+    })
+    .fail(function(data) {
+
+        alert("An error occurred");
 
     });
 });
