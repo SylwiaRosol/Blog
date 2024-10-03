@@ -19,7 +19,7 @@ $("a.delete").on("click", function(e) {
  * Add a method to validate a date time string
  */
 $.validator.addMethod("dateTime", function(value, element) {
-
+        
     return (value == "") || ! isNaN(Date.parse(value));
 
 }, "Must be a valid date and time");
@@ -61,6 +61,27 @@ $("button.publish").on("click", function(e) {
     });
 });
 
+/**
+ * Show the date and time picker for the published at field
+ */
 $('#published_at').datetimepicker({
     format:'Y-m-d H:i:s'
+});
+
+/**
+ * Validate the contact form
+ */
+$("#formContact").validate({
+	rules: {
+		email: {
+			required: true,
+			email: true
+		},
+		subject: {
+			required: true
+		},
+		message: {
+			required: true
+		}
+	}
 });

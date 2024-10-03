@@ -21,15 +21,17 @@
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
 
                 <?php if (Auth::isLoggedIn()) : ?>
-
+                    
                     <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout.php">Log out</a></li>
 
                 <?php else : ?>
-
+                    
                     <li class="nav-item"><a class="nav-link" href="/login.php">Log in</a></li>
 
                 <?php endif; ?>
+
+                <li class="nav-item"><a class="nav-link" href="/contact.php">Contact</a></li>
             </ul>
         </nav>
 
