@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <?php require '../includes/header.php'; ?>
-
+<div class="container mt-5">   
 <h2>Edit article image</h2>
 
 <?php if ($article->image_file) : ?>
@@ -129,13 +129,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form method="post" enctype="multipart/form-data">
 
-    <div>
+    <div class="container mb-3">
         <label for="file">Image file</label>
         <input type="file" name="file" id="file">
     </div>
 
-    <button>Upload</button>
+    <button class="btn btn-success rounded-pill px-3" type="button">Upload</button>
 
 </form>
-
+</div>
 <?php require '../includes/footer.php'; ?>

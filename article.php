@@ -13,9 +13,11 @@ if (isset($_GET['id'])) {
 ?>
 <?php require 'includes/header.php'; ?>
 
+ 
+
 <?php if ($article) : ?>
 
-    <article>
+    <article class="container mt-5">
         <h2><?= htmlspecialchars($article[0]['title']); ?></h2>
 
         <time datetime="<?= $article[0]['published_at'] ?>"><?php

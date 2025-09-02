@@ -12,7 +12,7 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
 
 ?>
 <?php require '../includes/header.php'; ?>
-
+<div class="container mt-5"> 
 <h2>Administration</h2>
 
 <p><a href="new-article.php">New article</a></p>
@@ -48,7 +48,7 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
             <?php endforeach; ?>
         </tbody>
     </table>
-
+</div> 
     <?php require '../includes/pagination.php'; ?>
 
 <?php endif; ?>

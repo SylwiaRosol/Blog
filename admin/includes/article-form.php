@@ -6,7 +6,7 @@
     </ul>
 <?php endif; ?>
 
-<form method="post" id="formArticle">
+<form method="post" id="formArticle" class="container mt-5">
 
     <div class="form-group">
         <label for="title">Title</label>
@@ -36,6 +36,6 @@
         <?php endforeach; ?>
     </fieldset>
 
-    <button class="btn">Save</button>
+    <button class="btn btn-success rounded-pill px-3 mt-2" type="button">Save</button>
 
 </form>
