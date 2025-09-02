@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
 
 <?php if ($article) : ?>
 
-    <article>
+    <article class="container mt-5">
         <h2><?= htmlspecialchars($article[0]['title']); ?></h2>
 
         <?php if ($article[0]['published_at']) : ?>

@@ -22,26 +22,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <?php require 'includes/header.php'; ?>
 
-<h2>Login</h2>
 
-<?php if (! empty($error)) : ?>
+
+
+
+
+
+    <main class="form-signin w-50 text-center p-5 m-auto"> 
+       
+    <?php if (! empty($error)) : ?>
     <p><?= $error ?></p>
-<?php endif; ?>
+    <?php endif; ?>
 
-<form method="post">
+        <form class="mt-5" method="post"> 
+        <h1 class="h3 mb-3 fw-normal">Please log in</h1> 
+        <div class="form-floating mb-3">
+            <label for="floatingInput">Username</label>  
+            <input name="username" id="username">   
+        </div> 
+        <div class="form-floating"> 
+            <label for="floatingPassword">Password</label>
+            <input type="password" name="password" id="password">     
+        </div> 
+         <button class="btn btn-primary w-50 mt-3 py-2" type="submit">Sign in</button> 
+        </form> 
+    </main>   
+            
 
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input name="username" id="username" class="form-control">
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" class="form-control">
-    </div>
-
-    <button class="btn">Log in</button>
-
-</form>
 
 <?php require 'includes/footer.php'; ?>

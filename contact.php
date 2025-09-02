@@ -68,8 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <?php require 'includes/header.php'; ?>
-
-<h2>Contact</h2>
+<div class="main-container position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+      <h1 class="display-3 text-uppercase fw-bold text1">Skontaktuj się z nami</h1>
+      <h3 class="fw-normal .text-body-secondary mb-3">Masz pytania? Napisz do nas!</h3>
 
 <?php if ($sent) : ?>
     <p>Message sent.</p>
@@ -100,9 +102,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea class="form-control" name="message" id="message" placeholder="Message"><?= htmlspecialchars($message) ?></textarea>
         </div>
 
-        <button class="btn">Send</button>
+        <button class="btn btn-success rounded-pill px-3" type="button">Send</button>
 
     </form>
+</div>
+            </div>
 
 <?php endif; ?>
 
