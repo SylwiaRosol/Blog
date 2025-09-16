@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
 <?php if ($article) : ?>
 
     <article class="container mt-5">
-        <h2><?= htmlspecialchars($article[0]['title']); ?></h2>
+        <h1 class="text-center display-3 text-uppercase fw-bold text-success"><?= htmlspecialchars($article[0]['title']); ?></h1>
 
         <time datetime="<?= $article[0]['published_at'] ?>"><?php
             $datetime = new DateTime($article[0]['published_at']);

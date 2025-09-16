@@ -45,12 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPAuth = true;
             $mail->Username = SMTP_USER;
             $mail->Password = SMTP_PASS;
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
-            $mail->setFrom('sender@example.com');
-            $mail->addAddress('recipient@example.com');
-            $mail->addReplyTo($email);
+            $mail->setFrom('sylwiar1@sylwiarosol.pl');
+            $mail->addAddress($email);
+            $mail->addReplyTo('sylwiar1@sylwiarosol.pl');
             $mail->Subject = $subject;
             $mail->Body = $message;
 
@@ -70,11 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require 'includes/header.php'; ?>
 <div class="main-container position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
     <div class="col-md-6 p-lg-5 mx-auto my-5">
-      <h1 class="display-3 text-uppercase fw-bold text1">Skontaktuj się z nami</h1>
-      <h3 class="fw-normal .text-body-secondary mb-3">Masz pytania? Napisz do nas!</h3>
+      <h1 class="display-3 text-uppercase fw-bold bg-dark text-light">Skontaktuj się z nami</h1>
+      <h3 class="fw-normal .text-body-secondary mb-3 bg-dark text-light">Masz pytania? Napisz do nas!</h3>
 
 <?php if ($sent) : ?>
-    <p>Message sent.</p>
+    <p class="fw-normal .text-body-secondary mb-3 bg-dark text-light">Message sent.</p>
 <?php else: ?>
 
     <?php if (! empty($errors)) : ?>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea class="form-control" name="message" id="message" placeholder="Message"><?= htmlspecialchars($message) ?></textarea>
         </div>
 
-        <button class="btn btn-success rounded-pill px-3" type="button">Send</button>
+        <button class="btn btn-success rounded-pill px-3" type="submit">Send</button>
 
     </form>
 </div>

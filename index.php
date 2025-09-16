@@ -14,8 +14,8 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset, true)
   
 <div class="main-container position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
     <div class="col-md-6 p-lg-5 mx-auto my-5">
-      <h1 class="display-3 text-uppercase fw-bold .text1">Witaj w świecie ziół</h1>
-      <h3 class="fw-normal .text-body-secondary mb-3">Aromatyczny zakątek, pełen wiedzy o zielarstwie</h3>
+      <h1 class="display-3 text-uppercase fw-bold bg-dark text-light">Witaj w świecie ziół</h1>
+      <h3 class="fw-normal .text-body-secondary mb-3 bg-dark text-light">Aromatyczny zakątek, pełen wiedzy o zielarstwie</h3>
       <div class="d-flex gap-3 justify-content-center lead fw-normal">
        
       </div>
@@ -42,7 +42,7 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset, true)
                             <?php endforeach; ?>
                             </strong></p>
                             <?php endif; ?>
-          <h2 class="mb-0 .text-primary-emphasis"><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
+          <h2 class="mb-0"><a class ="text-success" href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
           <div class="mb-1 text-body-secondary"> 
             <time datetime="<?= $article['published_at'] ?>"><?php
                         $datetime = new DateTime($article['published_at']);
