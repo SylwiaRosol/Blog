@@ -1,7 +1,7 @@
 # Blog
 
 ## Project Description  
-**Blog** is a web application built using **PHP, HTML, CSS, and JavaScript**.  
+**Blog** is a web application built using **PHP, HTML, CSS, JavaScript and Bootstrap**.  
 The main purpose of the project is to allow visitors to browse publicly available blog posts in a clean and responsive interface.
 
 ### Public Features
@@ -23,3 +23,10 @@ After logging in as an administrator, additional content management options are 
 - **HTML & CSS** – structure and styling of the web pages
 - **JavaScript** – interactivity and dynamic elements
 - **Database** – storage for posts, categories, and related content
+
+### Opportunity to see the project
+https://blog.sylwiarosol.pl/
+
+### Data to log in to the administration panel: 
+- login: sylwia 
+- password: secret
