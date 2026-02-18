@@ -24,8 +24,6 @@ After logging in as an administrator, additional content management options are 
 - **JavaScript** – interactivity and dynamic elements
 - **Database** – storage for posts, categories, and related content
 
-### Opportunity to see the project
-https://blog.sylwiarosol.pl/
 
 ### Data to log in to the administration panel: 
 - login: sylwia 
